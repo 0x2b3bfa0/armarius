@@ -75,7 +75,7 @@
    }
   }
 
-  $(document.body).on("scroll", function() {
+  $(window).on("scroll", function() {
       var scrollHeight = $(document).height();
       var scrollPos = $(window).height() + $(window).scrollTop();
       if(((scrollHeight - 300) >= scrollPos) / scrollHeight == 0){
