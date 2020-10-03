@@ -1,8 +1,8 @@
 (function ($) {
   "use strict";
 
-  $("#search_bar").hide()
-  $("#table_head").hide()
+  $("#search-bar").hide()
+  $("#table-head").hide()
 
   var base = location.protocol + '//' + location.host + location.pathname;
   let list = Papa.parse(base + "/list.csv", {
@@ -30,13 +30,13 @@
             findAllMatches: true
           });
           window.search = function(pattern) {
-              $("#search_bar").fadeOut()
+              $("#search-bar").fadeOut()
               document.getElementById('books').innerHTML = "";
               window.results = window.fuse.search(pattern).reverse();
               window.refreshResults();
-              setTimeout(function(){$("#search_bar").fadeIn()}, 100);
+              setTimeout(function(){$("#search-bar").fadeIn()}, 100);
           }
-          $("#table_head").fadeIn()
+          $("#table-head").fadeIn()
           window.search(" ");
           document.getElementById('search').disabled = false;
           document.getElementById('button').disabled = false;

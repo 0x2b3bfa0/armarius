@@ -11,8 +11,8 @@
     </head>
     <body>
         <div class="page-wrapper">
-            <header class="header-desktop" style="background: #f5f5f5;box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);position: fixed;left:0;top: 0;right: 0;height: 75px;z-index: 3;">
-                <div class="section__content section__content--p30">
+            <header class="header-desktop">
+                <div class="section-content section-content-30">
                     <div class="container-fluid">
                         <div class="progress">
                             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
@@ -20,13 +20,13 @@
                     </div>
                 </div>
             </header>
-            <header class="header-desktop" id="search_bar" style="background: #f5f5f5;box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);position: fixed;left:0;top: 0;right: 0;height: 75px;z-index: 3;">
-                <div class="section__content section__content--p30">
+            <header class="header-desktop" id="search-bar">
+                <div class="section-content section-content-30">
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <form class="form-header" action="#" onsubmit="window.search(document.getElementById('search').value);return false;" style="width:100%">
-                                <input class="au-input au-input--xl" disabled type="text" name="buscar" style="width:100%" id="search" placeholder="Buscar libros..." />
-                                <button class="au-btn--submit" disabled id="button" type="submit">
+                                <input class="au-input au-input-xl" disabled type="text" name="buscar" style="width:100%" id="search" placeholder="Buscar libros..." />
+                                <button class="au-btn-submit" disabled id="button" type="submit">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </form>
@@ -35,13 +35,13 @@
                 </div>
             </header>
             <div class="main-content">
-                <div class="section__content section__content--p30">
+                <div class="section-content section-content-30">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="table-responsive table-responsive-data2">
-                                    <table class="table table-data2">
-                                        <thead id="table_head">
+                                <div class="table-responsive table-responsive-data-wrapper">
+                                    <table class="table table-data-content">
+                                        <thead id="table-head">
                                             <tr>
                                                 <th>Autor</th>
                                                 <th>Título</th>
