@@ -75,7 +75,6 @@
    }
   }
 
-
   $(document.body).on("scroll", function() {
       var scrollHeight = $(document).height();
       var scrollPos = $(window).height() + $(window).scrollTop();
