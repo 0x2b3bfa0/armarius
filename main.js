@@ -65,11 +65,11 @@
                     + item["item"]["Idioma"]
                     + '</td><td>'
                     + (item["item"]["Valoración"] ? ('<span class="status--process">' + item["item"]["Valoración"] + '</span>') : "N/A")
-                    + '</td><td><div class="table-data-feature"><button class="item" onclick="window.location.href=\'magnet:?xt=urn:btih:'
-                    + (item["item"]["Enlace(s)"] ?  item["item"]["Enlace(s)"].split(/[ ,]+/).filter(Boolean).pop() : "").replace("'", "\\'")
+                    + '</td><td><div class="table-data-feature"><a class="item" href="magnet:?xt=urn:btih:'
+                    + (item["item"]["Enlace(s)"] ?  item["item"]["Enlace(s)"].split(/[ ,]+/).filter(Boolean).pop() : "").replace('"', '\\"')
                     + '&dn='
                     + (item["item"]["EPL Id"] + '_' + item["item"]["Autor"] + '_' + item["item"]["Título"]).replace(/[\W_]+/g, "_")
-                    + '&tr=http://tracker.tfile.me/announce&tr=udp://tracker.opentrackr.org:1337/announce\'" title="Descargar"><i class="far fa-arrow-alt-circle-down"></i></button></div></td></tr><tr class="spacer"></tr>'
+                    + '&tr=http://tracker.tfile.me/announce&tr=udp://tracker.opentrackr.org:1337/announce"><i class="far fa-arrow-alt-circle-down"></i></a></div></td></tr><tr class="spacer"></tr>'
            }
        }
    }
