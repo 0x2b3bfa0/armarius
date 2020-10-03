@@ -1,0 +1,47 @@
+name: Refresh lists
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  push:
+    branches:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Gather the repository
+        uses: actions/checkout@v2
+
+      - name: Run a multi-line script
+        run: |
+          curl --location https://rss.epublibre.org/csv > list.csv.zip
+          unzip list.csv.zip && rm list.csv.zip && mv {epublibre,raw}.csv
+          python3 <<'END'
+          import base64, csv
+          with open("raw.csv", newline='') as input_file:
+              records = [
+                [base64.b64encode(field.encode('utf8')).decode('ascii') for field in record]
+                for record in csv.reader(input_file)
+                ]
+          with open('raw.csv', mode='w') as output_file:
+              writer = csv.writer(output_file)
+              writer.writerows(records)
+          with open('list.csv', mode='w') as output_file:
+              writer = csv.writer(output_file)
+              writer.writerow([*records[0][0:7], records[0][10], records[0][13], records[0][15]])
+              writer.writerows([record[0:7] + [record[10]] + [record[13]] + [record[15]] for record in records[1:]])
+          END
+
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v5
+        with:
+          add: "*.csv"
+          author_name: Armarius
+          author_email: armarius@scriptorium
+          message: "Refresh lists"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
